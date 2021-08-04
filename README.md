@@ -39,7 +39,7 @@ Thanks!
 
 ## Testing
 
-Testing of code was conducted mostly in the browser. I am currently having a lot of trouble seeding the database to even run tests on it so not much is displayed at this time. I've been trying to break down and walk through the code but it is a slow process.
+Testing of code was conducted mostly in the browser. I am currently having a lot of trouble seeding the database to even run tests on it so not much is displayed at this time. I've been trying to break down, rebuild and walk through the code but it is a slow process.
 
 ## Questions
 
