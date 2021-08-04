@@ -2,45 +2,45 @@ const router = require('express').Router();
 const { Blogpost, User } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
-  try {
-    res.render('main', {layout: 'index' }); 
-
-    // res.render('index', { 
-    //   blogposts, 
-    //   logged_in: req.session.logged_in 
-    // });
-
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-// router.get('/', async (req, res) => {
+// router.get('/', (req, res) => {
 //   try {
+//     // res.render('index'); 
 
-//     // Get all posts and JOIN with user data.
-//     const blogpostData = await Blogpost.findAll({
-//       include: [
-//         {
-//           model: User,
-//           attributes: ['name'],
-//         },
-//       ],
-//     });
-
-//     // Serialize data so the template can read it.
-//     const blogposts = blogpostData.map((blogpost) => blogpost.get({ plain: true }));
-
-//     // Pass serialized data and session flag into template
 //     res.render('index', { 
-//       posts, 
+//       blogposts, 
 //       logged_in: req.session.logged_in 
 //     });
+
 //   } catch (err) {
 //     res.status(500).json(err);
 //   }
 // });
+
+router.get('/', async (req, res) => {
+  try {
+
+    // Get all posts and JOIN with user data.
+    const blogpostData = await Blogpost.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    // Serialize data so the template can read it.
+    const blogposts = blogpostData.map((blogpost) => blogpost.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render('index', { 
+      posts, 
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.get('/blogpost/:id', async (req, res) => {
   try {
