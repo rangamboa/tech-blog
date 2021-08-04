@@ -18,6 +18,7 @@ Blogpost.init(
     content: {
       type: DataTypes.STRING,
       allowNull: false,
+      defaultValue: '',
     },
     user_id: {
       type: DataTypes.INTEGER,
