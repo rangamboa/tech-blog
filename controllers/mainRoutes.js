@@ -4,13 +4,7 @@ const withAuth = require('../utils/auth');
 
 // router.get('/', (req, res) => {
 //   try {
-//     // res.render('index'); 
-
-//     res.render('index', { 
-//       blogposts, 
-//       logged_in: req.session.logged_in 
-//     });
-
+//     res.render('index'); 
 //   } catch (err) {
 //     res.status(500).json(err);
 //   }
@@ -32,9 +26,9 @@ router.get('/', async (req, res) => {
     // Serialize data so the template can read it.
     const blogposts = blogpostData.map((blogpost) => blogpost.get({ plain: true }));
 
-    // Pass serialized data and session flag into template
+    // Pass serialized data and session flag into template.
     res.render('index', { 
-      posts, 
+      blogposts, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
