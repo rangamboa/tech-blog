@@ -12,13 +12,18 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  for (const blogpost of blogpostData) {
-    await Blogpost.create({
-      ...blogpost,
-      // Randomize a user_id.
-      user_id: users[Math.floor(Math.random() * users.length)].id,
-    });
-  }
+  const blogposts = await Blogpost.bulkCreate(blogpostData, {
+    individualHooks: true,
+    returning: true,
+  });
+
+  // for (const blogpost of blogpostData) {
+  //   await Blogpost.create({
+  //     ...blogpost,
+  //     // Randomize a user_id.
+  //     user_id: users[Math.floor(Math.random() * users.length)].id,
+  //   });
+  // }
 
   process.exit(0);
 };
