@@ -39,7 +39,7 @@ Thanks!
 
 ## Testing
 
-Testing of code was mostly conducted in Insomnia; error messages were parsed there and in the VS Code command line. My main problem has been trying to debug the "update product" route; the database does not update with the new values I pass through in the PUT. I also need to continue to work on the product tag functionality; as seen in the walkthrough video those were not filled out.
+Testing of code was conducted mostly in the browser. I am currently having a lot of trouble seeding the database to even run tests on it so not much is displayed at this time. I've been trying to break down and walk through the code but it is a slow process.
 
 ## Questions
 
