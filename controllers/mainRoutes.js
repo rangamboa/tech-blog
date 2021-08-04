@@ -13,7 +13,7 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
 
-    // Get all posts and JOIN with user data.
+    // Get all posts, join with user data.
     const blogpostData = await Blogpost.findAll({
       include: [
         {
@@ -22,6 +22,7 @@ router.get('/', async (req, res) => {
         },
       ],
     });
+    console.data(blogpostData);
 
     // Serialize data so the template can read it.
     const blogposts = blogpostData.map((blogpost) => blogpost.get({ plain: true }));
